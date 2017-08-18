@@ -12,6 +12,7 @@ cli.parse({
   genAll: ['a', 'Generate an all.json file with the content of everything in the input.csv'],
   genIndex: ['i', 'Generate an index inside of the folder with every identifier in a json array'],
   output: ['o', 'Output path of the created files', 'dir', 'public'],
+  quote: ['q', 'Optional character surrounding a field. One character only. Disabled if null, false or empty.', 'string', '"'],
   rebuild: ['r', 'Delete files in output path before creation']
 })
 
@@ -25,7 +26,8 @@ function load(filename) {
   const t1 = parse(data, {
     auto_parse: true,
     columns: true,
-    delimiter: cli.options.csvDelimiter
+    delimiter: cli.options.csvDelimiter,
+    quote: cli.options.quote
   })
   return t1
 }
