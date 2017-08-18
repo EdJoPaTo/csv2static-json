@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const cli = require('cli');
 const fs = require('fs');
 const parse = require('csv-parse/lib/sync');
