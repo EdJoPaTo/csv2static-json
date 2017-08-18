@@ -6,7 +6,7 @@ const spawn = require('child_process').spawnSync;
 cli.enable('version');
 cli.setUsage(cli.app + ' [options] file.csv');
 cli.parse({
-  csvDelimiter: ['d', "Set the field delimiter. One character only.", 'string', ','],
+  csvDelimiter: ['d', 'Set the field delimiter. One character only.', 'string', ','],
   genAll: ['a', 'Generate an all.json file with the content of everything in the input.csv'],
   genIndex: ['i', 'Generate an index inside of the folder with every identifier in a json array'],
   output: ['o', 'Output path of the created files', 'dir', 'public'],
@@ -33,7 +33,7 @@ function startGeneration(files) {
     spawn('rm', ['-rf', cli.options.output]);
   }
 
-  for (var i = 0; i < files.length; i++) {
+  for (let i = 0; i < files.length; i++) {
     generateFromFilename(files[i]);
     console.log(files[i], 'done');
   }
@@ -67,7 +67,7 @@ function generate(name, folder, entries) {
     });
 
     if (cli.options.genIndex) {
-      var ids = entries.map(o => o[fileIdentifier]);
+      const ids = entries.map(o => o[fileIdentifier]);
       fs.writeFileSync(folder + '/index.json', JSON.stringify(ids), 'utf8');
     }
   }
