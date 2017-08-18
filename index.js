@@ -27,7 +27,9 @@ function load(filename) {
     auto_parse: true,
     columns: true,
     delimiter: cli.options.csvDelimiter,
-    quote: cli.options.quote
+    quote: cli.options.quote,
+    skip_empty_lines: true,
+    skip_lines_with_empty_values: true
   })
   return t1
 }
