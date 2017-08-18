@@ -1,7 +1,7 @@
 {
   "name": "csv2static-json",
   "version": "1.0.0",
-  "description": "",
+  "description": "A small command line tool to create json files for static REST (only GET) APIs from csv data files",
   "main": "index.js",
   "bin": {
     "csv2static-json": "index.js"
