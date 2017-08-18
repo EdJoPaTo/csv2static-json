@@ -11,7 +11,7 @@
     "test": "npm run eslint"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cli": "^1.0.1",
     "csv-parse": "^1.2.1"
@@ -23,5 +23,13 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edjopato/csv2static-json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edjopato/csv2static-json/issues"
+  },
+  "homepage": "https://github.com/edjopato/csv2static-json#readme"
 }
