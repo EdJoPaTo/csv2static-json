@@ -21,17 +21,34 @@ if (cli.args.length < 1) { // must contain one or more file.csv
   process.exit(1)
 }
 
+function parseValuesToJson(entry) {
+  const keys = Object.keys(entry)
+  const result = {}
+  for (const key of keys) {
+    if (entry[key] === '') {
+      continue
+    }
+    try {
+      result[key] = JSON.parse(entry[key])
+    } catch (err) {
+      result[key] = entry[key]
+    }
+  }
+  return result
+}
+
 function load(filename) {
   const data = fs.readFileSync(filename, 'utf8')
   const t1 = parse(data, {
-    auto_parse: true,
+    auto_parse: false,
     columns: true,
     delimiter: cli.options.csvDelimiter,
     quote: cli.options.quote,
     skip_empty_lines: true,
     skip_lines_with_empty_values: true
   })
-  return t1
+  const t2 = t1.map(parseValuesToJson)
+  return t2
 }
 
 function startGeneration(files) {
